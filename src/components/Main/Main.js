@@ -7,20 +7,25 @@ const Main = () => {
 
     const [dogList, setDogList] = useState(null);
 
+
+
     useEffect(() => {
-        axios.get('http://localhost:8080')
+        axios.get('http://localhost:8080/dogs')
           .then(res => {
             setDogList(res.data)
             console.log(res.data)
           }).catch(error => console.log(error))
     },[])
 
+    if (!dogList) {
+      return <h1>Loading...</h1>
+    }
 
   return (
     <main className="Main">
       <div className="card">
         <div className="card__image-wrapper">
-          <img src="#" className="card__dog-image"/>
+          <img src={dogList[0].image} className="card__dog-image"/>
       </div>
        <button className="card__button"></button>
        </div>
@@ -29,7 +34,7 @@ const Main = () => {
 
       <div className="card">
         <div className="card__image-wrapper">
-          <img src="#" className="card__dog-image"/>
+          <img src={dogList[1].image} className="card__dog-image"/>
       </div>
        <button className="card__button"></button>
        </div>
