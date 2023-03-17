@@ -7,72 +7,104 @@ import { randomNum } from '../../utils/FunctionDefinitions.js'
 
 const Main = () => {
 
-  const [dogList, setDogList] = useState(null);
+  // const [dogList, setDogList] = useState(null);
 
-  // const [ firstDog, setFirstDog ] = useState(null);
-  // const [ secondDog, setSecondDog ] = useState(null);
- 
-  
+  // const [random1, random2] = randomNum()
+
+  // useEffect(() => {
+
+  //   axios.get('http://localhost:8080/dogs')
+  //   .then(res => {
+  //     setDogList(res.data)
+  //   })
+  //   .catch(error => console.log(error))      
+
+  // }, [])
+
+  // if (!dogList) {
+  //     return <h1>Loading...</h1>
+  //   }
+
+
+  const [firstDog, setFirstDog] = useState(null);
+  const [secondDog, setSecondDog] = useState(null);
+
   const [random1, random2] = randomNum()
 
   useEffect(() => {
 
     axios.get('http://localhost:8080/dogs')
       .then(res => {
-        setDogList(res.data)
+        setFirstDog(res.data[random1])
+        setSecondDog(res.data[random2])
       })
-      .catch(error => console.log(error))      
+      .catch(error => console.log(error))
 
   }, [])
 
-  // useEffect(() => {
 
-  //   if (!dogList) return
 
-  //   setFirstDog(dogList[random1]);
-  //   setSecondDog(dogList[random2]);
 
-  // }, [dogList])
-
-  
-  if (!dogList) {
+  if (!firstDog || !secondDog) {
     return <h1>Loading...</h1>
   }
 
-  // if (!firstDog) {
-  //   return <h1>Loading...</h1>
-  // }
 
+  const firstDogWins = () => {
 
-  // const firstDogWins = () => {
+    axios.put('http://localhost:8080/winner', {
 
-  //   axios.post('http://localhost:8080/dogs/', {
+      winningId: firstDog.id,
+      losingId: secondDog.id
 
-  //   })
-  //     .then((res) => {
+    })
+      .then((res) => {
+        console.log(res.data)
+        setSecondDog(res.data)
+      })
+      .catch((err) => {
+        console.log(err)
+      })
 
-  //     })
+  }
 
-  // }
+  const secondDogWins = () => {
+
+    axios.put('http://localhost:8080/winner', {
+
+      winningId: secondDog.id,
+      losingId: firstDog.id
+
+    })
+      .then((res) => {
+        console.log(res.data)
+        setFirstDog(res.data)
+      })
+      .catch((err) => {
+        console.log(err)
+      })
+
+  }
+
 
   return (
     <main className="Main">
       <div className="card">
         <div className="card__image-wrapper">
-          <img src={dogList[random1].image} className="card__dog-image" />
+          <img src={firstDog.image} className="card__dog-image" />
         </div>
-        <h3>{dogList[random1].name}</h3>
-        <button className="card__button"></button>
+        <h3>{firstDog.name}</h3>
+        <button className="card__button" onClick={()=> firstDogWins()}>&#60;3</button>
       </div>
 
       <h2 className="versus">VS</h2>
 
       <div className="card">
         <div className="card__image-wrapper">
-          <img src={dogList[random2].image} className="card__dog-image" />
+          <img src={secondDog.image} className="card__dog-image" />
         </div>
-        <h3>{dogList[random2].name}</h3>
-        <button className="card__button"></button>
+        <h3>{secondDog.name}</h3>
+        <button className="card__button" onClick={() => secondDogWins()}>&#60;3</button>
       </div>
     </main>
   )
