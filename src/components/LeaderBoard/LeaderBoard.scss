@@ -1,0 +1,26 @@
+
+
+*{
+    box-sizing: border-box;   
+}
+
+.board{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+
+&__list{
+    font-weight: bold;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: dodgerblue;
+    background-image: url(../../assets/Images/puppies-playing-tug-war-two-cute-play-stick-65840643.jpg);
+    width: 100%;
+    }    
+
+&__group{
+    
+    width: 100%;
+
+}
+}

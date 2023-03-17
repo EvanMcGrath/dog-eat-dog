@@ -8,7 +8,7 @@ const Main = () => {
     const [dogList, setDogList] = useState(null);
 
     useEffect(() => {
-        axios.get('http://localhost:8080')
+        axios.get('http://localhost:8080/dogs')
           .then(res => {
             setDogList(res.data)
             console.log(res.data)
