@@ -13,14 +13,18 @@
 &__list{
     font-weight: bold;
     font-family: Georgia, 'Times New Roman', Times, serif;
-    color: dodgerblue;
-    background-image: url(../../assets/Images/puppies-playing-tug-war-two-cute-play-stick-65840643.jpg);
+    color: #0065AD;
     width: 100%;
     }    
 
 &__group{
-    
+    background-color: white;
     width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+ }
 
-}
+&__duo {
+    
+} 
 }
