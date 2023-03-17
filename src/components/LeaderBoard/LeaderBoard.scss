@@ -1,0 +1,30 @@
+
+
+*{
+    box-sizing: border-box;   
+}
+
+.board{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+
+&__list{
+    font-weight: bold;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: #0065AD;
+    width: 100%;
+    }    
+
+&__group{
+    background-color: white;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+ }
+
+&__duo {
+    
+} 
+}
