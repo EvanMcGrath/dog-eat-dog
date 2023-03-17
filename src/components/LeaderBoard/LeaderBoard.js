@@ -9,7 +9,7 @@ const LeaderBoard = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:8080/dogs")
+      .get("http://localhost:8080/leaderboard")
       .then((res) => {
         console.log(res);
         setDogList(res.data);
