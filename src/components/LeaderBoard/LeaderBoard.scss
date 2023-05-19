@@ -1,43 +1,36 @@
-
-
-*{
-    box-sizing: border-box;   
-}
-
-
-.top-dog-wrapper {
-
-    width:50%;
-    margin: 0 auto;
-
+* {
+  box-sizing: border-box;
 }
 
 .top-dog {
+  width: 50%;
+  margin: 0 auto;
 
+  &__image-file {
     width: 100%;
+  }
 }
 
-.board{
-    display: flex;
-    width: 100%;
-    justify-content: center;
-    align-items: center;
+.leaderboard {
+//   display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
 
-&__list{
+  &__list {
     font-weight: bold;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    color: #0065AD;
+    font-family: Georgia, "Times New Roman", Times, serif;
+    color: #0065ad;
     width: 100%;
-    }    
+  }
 
-&__group{
+  &__group {
     background-color: white;
     width: 100%;
     display: flex;
     justify-content: space-evenly;
- }
+  }
 
-&__duo {
-    
-} 
+  &__duo {
+  }
 }
