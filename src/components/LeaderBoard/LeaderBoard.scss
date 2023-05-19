@@ -3,8 +3,8 @@
 }
 
 .top-dog {
-  width: 50%;
-  margin: 0 auto;
+  flex-basis: 35%;
+//   margin: 0 auto;
 
   &__image-file {
     width: 100%;
@@ -12,10 +12,14 @@
 }
 
 .leaderboard {
-//   display: flex;
-  width: 100%;
-  justify-content: center;
-  align-items: center;
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+    align-items: center;
+
+  &__all-rankings {
+    flex-grow: 1;
+  }  
 
   &__list {
     font-weight: bold;
